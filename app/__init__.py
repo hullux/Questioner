@@ -15,7 +15,7 @@ db = SQLAlchemy()
 
 def create_app(config_name):
     '''initializing/creating the flask app(object)'''
-    app = Flask(__name__,instance_relative_config=True)
+    app = Flask(__name__,instance_relative_config=True,template_folder='templates',static_folder='static')
     
     print("conf is here ===>",app_config[config_name])
     app.config.from_object(app_config[config_name])#using development app configurations

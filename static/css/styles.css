@@ -19,7 +19,7 @@
   }
   
   .navbar a {
-    float: left;
+    /* float: left; */
     display: inline-block;
     color: #ffff;
     text-align: center;
@@ -36,7 +36,7 @@
     height: 55px;
   }
   .logo {
-      float: left;
+      /* float: left; */
       display: inline-block;
   }
   .user_status{
