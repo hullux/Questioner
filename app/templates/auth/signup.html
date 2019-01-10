@@ -15,9 +15,9 @@
 <body>
 
 <div class="header" id="header">
-            <a href="#" class="logo" style="padding: 0px;">
+            <a href="{{ url_for('home.home_view')}}" class="logo" style="padding: 0px;">
 				<span>
-					<img src="static/img/quest22.png" alt="Home">
+					<img src="{{ url_for('static',filename='img/quest22.png')}}" alt="Home">
 				</span>
 				
 			</a>
