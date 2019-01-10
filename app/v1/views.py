@@ -14,7 +14,8 @@ class UserLoginView(MethodView):
         return "user login"
     def get(self):
         '''this method handles user login ---> /auth/login'''
-        return super(UserLoginView,self)
+        # return super(UserLoginView,self)
+        return "user login"
 
 login_view = UserLoginView.as_view('login_view')
 

@@ -15,9 +15,9 @@
 <body>
 
 <div class="header" id="header">
-			<a href="#" class="logo" style="padding: 0px;">
+			<a href="#" class="logo" style="padding:0%;">
 				<span>
-					<img src="static/images/quest22.png" alt="Home">
+					<img src="{{ url_for('static', filename='img/quest22.png')}}" alt="Home">
 				</span>
 				
 			</a>
@@ -47,8 +47,9 @@
 			<div class="top_content" id="top_content" style="color: #ff4646;padding-top: 20px;">
 				<p>-- Welcome to Questioner. Ready to engage in some mind blowin discussions ? ... checkout latest meetups here --</p>
 			</div>
-			<div class="loginForm" id="loginForm">
+			<div class="loginForm" id="loginForm">	
 				<form>
+					<div><h4 style="text-align: center;padding: 0;margin: 10px;">Login</h4></div>
 					<label for="uname"><b>Username</b></label>
 			      	<input type="text" placeholder="Enter Username" name="uname" required>
 
@@ -57,7 +58,7 @@
 			        <div class="login_button" style="text-align: center;">
 			        	<button type="submit" class="login_">Login</button>
 			        </div>
-			        <div style="color: #ffff;">
+			        <div style="color: #ffff;text-align: center">
 			        	<p>Don't have an account? <a href="#" style="color: #ff7979;text-decoration:none;">signup</a>  OR  Forgot password? Reset <a href="#" style="color: #ff7979;text-decoration:none;">here</a></p>
 			        </div>
 				</form>
