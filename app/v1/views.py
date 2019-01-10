@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 from . import *
-=======
-from . import * 
->>>>>>> ft-user-signup-162981789
 
 from flask.views import MethodView 
 from flask import make_response, request, jsonify, render_template
@@ -42,13 +38,17 @@ signup_view = UserSignUpView.as_view('signup_view')
 login_view = UserLoginView.as_view('login_view')
 home_view = HomeView.as_view('home_view')
 
-home_blueprint.add_url_rule('/',view_func=home_view,methods=['GET'])
+home_blueprint.add_url_rule('/',
+    view_func=home_view,
+    methods=['GET']
+    )
 
 login_blueprint.add_url_rule(
     '/auth/login',
     view_func=login_view,
     methods=['POST','GET']
     )
+    
 signup_blueprint.add_url_rule('/auth/register/',
 view_func=signup_view,
 methods=['POST','GET']
