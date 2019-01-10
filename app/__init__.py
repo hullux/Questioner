@@ -8,7 +8,6 @@ from flask import Flask
 #imporing the configuration dictionary object from the instance module 
 from instance.config import app_config
 
-
 from .v1 import *
 
 #initializinng sqlalchemy 
