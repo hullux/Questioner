@@ -1,7 +1,14 @@
-from . import login_blueprint 
+from . import *
 
 from flask.views import MethodView 
 from flask import make_response, request, jsonify, render_template
+class HomeView(MethodView):
+    '''this is the index page view'''
+    template_name = '/user/index.html'
+    def dispatch_request(self, *args, **kwargs):
+        return render_template(self.template_name)
+    def get(self):
+        pass
 
 class UserLoginView(MethodView):
     '''this class allows a user to log into the platform'''
@@ -18,6 +25,9 @@ class UserLoginView(MethodView):
         return "user login"
 
 login_view = UserLoginView.as_view('login_view')
+home_view = HomeView.as_view('home_view')
+
+home_blueprint.add_url_rule('/',view_func=home_view,methods=['GET'])
 
 login_blueprint.add_url_rule(
     '/auth/login',

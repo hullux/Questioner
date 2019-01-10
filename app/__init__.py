@@ -8,13 +8,11 @@ from flask import Flask
 #imporing the configuration dictionary object from the instance module 
 from instance.config import app_config
 
-<<<<<<< HEAD
-=======
+
 from .v1 import *
 
->>>>>>> ft-user-login-163007032
 #initializinng sqlalchemy 
-db = SQLAlchemy()
+# db = SQLAlchemy()
 
 def create_app(config_name):
     '''initializing/creating the flask app(object)'''
@@ -32,4 +30,6 @@ def create_app(config_name):
     app.register_blueprint(upvote_downvote_blueprint)
     app.register_blueprint(rsvp_blueprint)
     app.register_blueprint(get_meetups)
+    app.register_blueprint(home_blueprint)
+    
     return app
