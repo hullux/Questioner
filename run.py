@@ -9,8 +9,4 @@ print("config name here ",config_name)
 app = create_app(config_name)
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-    app.run()
-=======
     app.run(debug=True)
->>>>>>> ft-user-login-163007032

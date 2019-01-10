@@ -8,11 +8,8 @@ from flask import Flask
 #imporing the configuration dictionary object from the instance module 
 from instance.config import app_config
 
-<<<<<<< HEAD
-=======
-from .v1 import *
 
->>>>>>> ft-user-login-163007032
+from .v1 import *
 #initializinng sqlalchemy 
 db = SQLAlchemy()
 
