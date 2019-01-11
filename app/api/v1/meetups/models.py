@@ -46,6 +46,7 @@ class Meetup(object):
 
     def get_rsvps_for_meetup(self,meetup_id):
         '''a func to get all the rsvps submitted for a specific meetup'''
+        
         meetup = self.get_meetup(meetup_id)
         rsvps = meetup['rsvps']
 
