@@ -8,9 +8,9 @@ from flask import Flask
 #imporing the configuration dictionary object from the instance module 
 from instance.config import app_config
 
-from .api.v1.meetups import *
-from .api.v1.questions import *
-from .api.v1.users import *
+from .api.v1.meetups import meetups_blueprint
+from .api.v1.questions import questions_blueprint
+from .api.v1.users import login_blueprint,signup_blueprint, home_blueprint
 
 
 #initializinng sqlalchemy 

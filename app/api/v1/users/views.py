@@ -1,16 +1,16 @@
 from . import *
 
-from flask.views import View 
+from flask.views import View,MethodView
 from flask import make_response, request, jsonify, render_template
 
-class HomeView(View):
+class HomeView(MethodView):
     '''this is the index page view'''
     methods = ['GET','POST']
     template_name = '/user/index.html'
     def dispatch_request(self, *args, **kwargs):
         return render_template(self.template_name)
     
-class UserLoginView(View):
+class UserLoginView(MethodView):
     '''this class allows a user to log into the platform'''
     methods = ['GET','POST']
     template_name = '/auth/login.html'
@@ -19,7 +19,7 @@ class UserLoginView(View):
         return render_template(self.template_name)
     
 
-class UserSignUpView(View):
+class UserSignUpView(MethodView):
     '''this class allows user to create an account'''
     methods = ['GET','POST']
     template_name = '/auth/signup.html'
