@@ -25,7 +25,12 @@ class Question(object):
 
     def get_question(self,question_id):
         '''function to fetch a specific question given the id'''
+        
         return [q for q in self.questions if q["id"]==question_id][0]
+    def get_all_questions(self,meetup_id):
+        '''a func to get all questions of a meetup'''
+
+        return [q for q in self.questions if q["meetup"]==meetup_id]
 
     def upvote_question(self,question_id):
         '''a function to upvote a question'''

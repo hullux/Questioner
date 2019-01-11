@@ -1,3 +1,3 @@
 from flask import Blueprint
 
-meetups_blueprint = Blueprint('meetups',__name__, url_prefix='/api/v1/',template_folder='templates')
+meetups_blueprint = Blueprint('meetups',__name__,template_folder='templates',static_folder='static', url_prefix='/api/v1/')

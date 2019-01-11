@@ -18,7 +18,7 @@ from .api.v1.users import login_blueprint,signup_blueprint, home_blueprint
 
 def create_app(config_name):
     '''initializing/creating the flask app(object)'''
-    app = Flask(__name__,instance_relative_config=True,template_folder='templates',static_folder='static',static_url_path='')
+    app = Flask(__name__,instance_relative_config=True)
     app.config.from_object(app_config[config_name])#using development app configurations
     app.config.from_pyfile("config.py")
 

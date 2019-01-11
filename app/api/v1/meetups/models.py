@@ -19,9 +19,10 @@ class Meetup(object):
             }
             return res
         else:
+            
             return self.meetups
 
-    def create_meetup(self,meetup_id,topic,time,venue,descriprion,images,tags,):
+    def create_meetup(self,meetup_id,topic,time,venue,descriprion,images,tags):
         '''a func to post a meetup by the admin'''
         meetup = {
             "created_on":datetime.now(),
