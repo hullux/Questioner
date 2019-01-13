@@ -64,11 +64,10 @@ class Comment(object):
 
     def create_comment(self,text,question_id):
         '''fucnction to make a comment to a specific question '''
-        question = Question.get_question(question_id)
         comment = {
             "comment_time":datetime.now(),
             "comment_text":text,
-            "question":question["question_id"],
+            "question":question_id,
         }
         self.comments.append(comment)
 
@@ -77,12 +76,12 @@ class Comment(object):
         question_obj = Question()
         question = question_obj.get_question(question_id)
         comments = [c for c in self.comments if c["question"] == question["question_id"]]
-        if len(comments) == 0:
-            res = {
-                "message":"No comments found",
-                "status_code":404
-            }
-            return res
-        else:
-            return comments
+        # if len(comments) == 0:
+        #     res = {
+        #         "message":"No comments found",
+        #         "status_code":404
+        #     }
+        #     return res
+        # else:
+        return comments
 

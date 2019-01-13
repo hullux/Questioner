@@ -3,7 +3,7 @@ import re
 from flask import request, jsonify
 from flask.views import View
 
-from .models import Question
+from .models import Question, Comment
 from ..meetups.models import Meetup
 from . import *
 
@@ -82,3 +82,40 @@ def downvote_question(question_id):
         return jsonify({"message":"Downvote successfull"}), 201
     else:
         return jsonify({"message":"Downvote successfull.Question not found"}), 404
+
+@questions_blueprint.route('/questions/<string:question_id>/comment',methods=['POST'])
+def post_comment(question_id):
+    '''this endpoints procides the functionslity to comment on a question'''
+    question_obj = Question()
+    comment_obj = Comment()
+    question = question_obj.get_question(question_id)
+    if question:
+        comment_text = request.json["comment"]
+        comment = comment_obj.create_comment(comment_text,question_id)
+        
+        return jsonify({"response":"comment successfully posted"}), 201
+    else:
+        return jsonify({"response":"commenting unsuccessful. Question not found"}), 404
+
+@questions_blueprint.route('/questions/<string:question_id>/comments',methods=['GET'])
+def get_all_comments(question_id):
+    '''an endpoint that fetches all the comments for a specific question'''
+    comments_obj = Comment()
+    comments = comments_obj.get_all_comments(question_id)
+    print("comments",comments)
+    results = []
+    if len(comments) >= 1:
+        for c in comments:
+            comment ={
+                "comment":c["comment_text"],
+                "posted on":c["comment_time"],
+                "question":c["question"],
+            }
+            results.append(comment)
+        return jsonify({"response":results}), 200
+    else:
+        return jsonify({"response":"No comments made"}), 204
+
+        
+
+    
