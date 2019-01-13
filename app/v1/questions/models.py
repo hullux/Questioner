@@ -1,32 +1,43 @@
 import uuid
+import urllib
 from datetime import  datetime
+from ..meetups.models import Meetup
 
-QUESTIONS = []
+
+QUESTIONS = [
+                {
+                "question_id":"vv55",
+                "created_on":datetime.now(),
+                "question_text":"what is Python?",
+                "upvotes":0,
+                "downvotes":10,
+                "meetup":'vsv354',
+                }
+            ]
 COMMENTS = []
 
 class Question(object):
-    '''this class represents manipulations of questions'''
+    '''this class represents blueprint/manipulations of questions'''
     def __init__(self, *args, **kwargs):
         self.questions = QUESTIONS
 
-    def create_question(self,text,meetup):
+    def create_question(self,text,meetup_id):
         '''a function to create a question'''
         question = {
             "question_id":uuid.uuid4(),
             "created_on":datetime.now(),
             "question_text":text,
-            "meetup":meetup,
             "upvotes":0,
             "downvotes":0,
+            "meetup":meetup_id
         }
 
         self.questions.append(question)
         return question["question_id"]
 
     def get_question(self,question_id):
-        '''function to fetch a specific question given the id'''
-        
-        return [q for q in self.questions if q["id"]==question_id][0]
+        '''function to fetch a specific question given the id'''    
+        return [q for q in self.questions if q["question_id"]==question_id][0]
     def get_all_questions(self,meetup_id):
         '''a func to get all questions of a meetup'''
 
@@ -63,7 +74,8 @@ class Comment(object):
 
         return comment
     def get_all_comments(self,question_id):
-        question = Question.get_question(question_id)
+        question_obj = Question()
+        question = question_obj.get_question(question_id)
         comments = [c for c in self.comments if c["question"] == question["question_id"]]
         if len(comments) == 0:
             res = {
