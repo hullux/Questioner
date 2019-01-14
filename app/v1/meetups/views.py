@@ -75,14 +75,13 @@ def get_all_meetups():
 def delete_meetup(meetup_id):
     '''a endpoint to delete a meetup'''
     meetup_obj = Meetup()
-    if meetup_id:
-        meetup = meetup_obj.get_meetup(meetup_id)
-        meetups = meetup_obj.get_all_meetups()
-        if meetup:
-            meetups.pop(meetup)
-            return jsonify({'message':"meetup successfully deleted"}),200
-        else:
-            return jsonify({'response':'meetup not found'}),404
+    meetup = meetup_obj.get_meetup(meetup_id)
+    meetups = meetup_obj.get_all_meetups()
+    if meetup:
+        meetup_obj.delete_meetup(meetup_id)
+        return jsonify({'message':"meetup successfully deleted"}),200
+    else:
+        return jsonify({'response':'meetup not found'}),404
 
 @meetups_blueprint.route('/meetups/<string:meetup_id>',methods=['PUT'])
 def rsvps_for_meetup(meetup_id):
