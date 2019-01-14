@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime
+from flask import jsonify
 
 MEETUPS = [{
                 "meetup_id":"vsv354",
@@ -66,3 +67,6 @@ class Meetup(object):
 
         return rsvps
 
+    def delete_meetup(self,meetup_id):
+        meetup = self.get_meetup(meetup_id)
+        self.get_all_meetups().remove(meetup)
